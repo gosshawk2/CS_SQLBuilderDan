@@ -48,13 +48,6 @@ namespace CS_SQLBuilderDan
             this.importTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webView2BrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.StsLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StsLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StsLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StsLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StsLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StsLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TileHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TileVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,12 +55,20 @@ namespace CS_SQLBuilderDan
             this.MinimiseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StsLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StsLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StsLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StsLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StsLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StsLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
@@ -76,7 +77,7 @@ namespace CS_SQLBuilderDan
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1004, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,12 +88,14 @@ namespace CS_SQLBuilderDan
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -200,7 +203,9 @@ namespace CS_SQLBuilderDan
             // importTableToolStripMenuItem
             // 
             this.importTableToolStripMenuItem.Name = "importTableToolStripMenuItem";
-            this.importTableToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.importTableToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.I)));
+            this.importTableToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.importTableToolStripMenuItem.Text = "Import Table";
             this.importTableToolStripMenuItem.Click += new System.EventHandler(this.importTableToolStripMenuItem_Click);
             // 
@@ -225,8 +230,52 @@ namespace CS_SQLBuilderDan
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.windowsToolStripMenuItem.Text = "Windows";
             // 
+            // TileHorizontalToolStripMenuItem
+            // 
+            this.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem";
+            this.TileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.TileHorizontalToolStripMenuItem.Text = "Tile Horizontal";
+            this.TileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
+            // 
+            // TileVerticalToolStripMenuItem
+            // 
+            this.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem";
+            this.TileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.TileVerticalToolStripMenuItem.Text = "Tile Vertical";
+            // 
+            // CascadeToolStripMenuItem
+            // 
+            this.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem";
+            this.CascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.CascadeToolStripMenuItem.Text = "Cascade";
+            // 
+            // ArrangeToolStripMenuItem
+            // 
+            this.ArrangeToolStripMenuItem.Name = "ArrangeToolStripMenuItem";
+            this.ArrangeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ArrangeToolStripMenuItem.Text = "Arrange";
+            // 
+            // MinimiseAllToolStripMenuItem
+            // 
+            this.MinimiseAllToolStripMenuItem.Name = "MinimiseAllToolStripMenuItem";
+            this.MinimiseAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.MinimiseAllToolStripMenuItem.Text = "Minimise All";
+            // 
+            // RestoreAllToolStripMenuItem
+            // 
+            this.RestoreAllToolStripMenuItem.Name = "RestoreAllToolStripMenuItem";
+            this.RestoreAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.RestoreAllToolStripMenuItem.Text = "Restore All";
+            // 
+            // CloseAllToolStripMenuItem
+            // 
+            this.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem";
+            this.CloseAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.CloseAllToolStripMenuItem.Text = "Close All";
+            // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StsLabel1,
             this.StsLabel2,
@@ -234,95 +283,54 @@ namespace CS_SQLBuilderDan
             this.StsLabel4,
             this.StsLabel5,
             this.StsLabel6});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 659);
+            this.statusStrip1.MinimumSize = new System.Drawing.Size(0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1004, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // StsLabel1
             // 
             this.StsLabel1.Name = "StsLabel1";
-            this.StsLabel1.Size = new System.Drawing.Size(0, 17);
+            this.StsLabel1.Size = new System.Drawing.Size(0, 665);
             // 
             // StsLabel2
             // 
             this.StsLabel2.Name = "StsLabel2";
-            this.StsLabel2.Size = new System.Drawing.Size(0, 17);
+            this.StsLabel2.Size = new System.Drawing.Size(0, 665);
             // 
             // StsLabel3
             // 
             this.StsLabel3.Name = "StsLabel3";
-            this.StsLabel3.Size = new System.Drawing.Size(0, 17);
+            this.StsLabel3.Size = new System.Drawing.Size(0, 665);
             // 
             // StsLabel4
             // 
             this.StsLabel4.Name = "StsLabel4";
-            this.StsLabel4.Size = new System.Drawing.Size(0, 17);
+            this.StsLabel4.Size = new System.Drawing.Size(0, 665);
             // 
             // StsLabel5
             // 
             this.StsLabel5.Name = "StsLabel5";
-            this.StsLabel5.Size = new System.Drawing.Size(0, 17);
+            this.StsLabel5.Size = new System.Drawing.Size(0, 665);
             // 
             // StsLabel6
             // 
             this.StsLabel6.Name = "StsLabel6";
-            this.StsLabel6.Size = new System.Drawing.Size(0, 17);
-            // 
-            // TileHorizontalToolStripMenuItem
-            // 
-            this.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem";
-            this.TileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.TileHorizontalToolStripMenuItem.Text = "Tile Horizontal";
-            this.TileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
-            // 
-            // TileVerticalToolStripMenuItem
-            // 
-            this.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem";
-            this.TileVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.TileVerticalToolStripMenuItem.Text = "Tile Vertical";
-            // 
-            // CascadeToolStripMenuItem
-            // 
-            this.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem";
-            this.CascadeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.CascadeToolStripMenuItem.Text = "Cascade";
-            // 
-            // ArrangeToolStripMenuItem
-            // 
-            this.ArrangeToolStripMenuItem.Name = "ArrangeToolStripMenuItem";
-            this.ArrangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ArrangeToolStripMenuItem.Text = "Arrange";
-            // 
-            // MinimiseAllToolStripMenuItem
-            // 
-            this.MinimiseAllToolStripMenuItem.Name = "MinimiseAllToolStripMenuItem";
-            this.MinimiseAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.MinimiseAllToolStripMenuItem.Text = "Minimise All";
-            // 
-            // RestoreAllToolStripMenuItem
-            // 
-            this.RestoreAllToolStripMenuItem.Name = "RestoreAllToolStripMenuItem";
-            this.RestoreAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.RestoreAllToolStripMenuItem.Text = "Restore All";
-            // 
-            // CloseAllToolStripMenuItem
-            // 
-            this.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem";
-            this.CloseAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.CloseAllToolStripMenuItem.Text = "Close All";
+            this.StsLabel6.Size = new System.Drawing.Size(0, 665);
             // 
             // Form_MAIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1004, 681);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1020, 675);
             this.Name = "Form_MAIN";
             this.Text = "SQL Builder in C#";
             this.Load += new System.EventHandler(this.Form_MAIN_Load);
@@ -344,7 +352,6 @@ namespace CS_SQLBuilderDan
         private System.Windows.Forms.ToolStripMenuItem tableListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StsLabel1;
         private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkToolStripMenuItem;
@@ -370,6 +377,7 @@ namespace CS_SQLBuilderDan
         private System.Windows.Forms.ToolStripMenuItem MinimiseAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RestoreAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CloseAllToolStripMenuItem;
+        public System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 

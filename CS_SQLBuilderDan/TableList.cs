@@ -28,7 +28,7 @@ namespace CS_SQLBuilderDan
             Header.DatasetHeaderText = string.Empty;
             Header.DatabaseName = string.Empty;
             Header.TableName = string.Empty;
-            Header.LibrayName = string.Empty;
+            Header.LibraryName = string.Empty;
             Header.DatasetType = string.Empty;
             Header.AuthorityFlag = 0;
             Header.DatasetLevel = string.Empty;
@@ -39,7 +39,8 @@ namespace CS_SQLBuilderDan
             Header.ServerInstance = string.Empty;
             Header.ComputerName = string.Empty;
             Header.IPAddr4 = string.Empty;
-            Header.Status = string.Empty;
+            Header.Port = string.Empty;
+            Header.Status = 0;
             Header.ChangedBy = string.Empty;
             Header.ChangeDate = DateTime.Today;
             Header.TotalRecords = 0;
@@ -63,6 +64,7 @@ namespace CS_SQLBuilderDan
 
         private void PopulateGrid()
         {
+            Program.MainForm.statusMSG1 = "Getting Tables ...";
             DataTable dt = null;
             string ConnString = string.Empty;
             string DBTable = string.Empty;
@@ -75,7 +77,7 @@ namespace CS_SQLBuilderDan
             Header.DatasetName = txtDatasetName.Text;
             Header.DatabaseName = txtDatabase.Text;
             Header.TableName = txtTableName.Text;
-            Header.LibrayName = txtLibrary.Text;
+            Header.LibraryName = txtLibrary.Text;
             Header.DatasetType = string.Empty;
             Header.DatasetLevel = string.Empty;
             Header.ImportedBy = txtUser.Text;
@@ -86,12 +88,16 @@ namespace CS_SQLBuilderDan
             Header.SortField = string.Empty;
             Header.ComputerName = string.Empty;
             Header.IPAddr4 = string.Empty;
+            Header.Port = string.Empty;
             Header.Tables = cboTables.Checked;
             Header.Views = cboViews.Checked;
 
             dt = DAL.GetHeaderList(Header);
             dgvTableList.DataSource = dt;
+            Program.MainForm.statusMSG1 = "Ready>";
         }
+
+
 
         private void btnTest_Click(object sender, EventArgs e)
         {
@@ -135,8 +141,13 @@ namespace CS_SQLBuilderDan
             if (e.Button == MouseButtons.Right)
             {
                 // Call popup menu:
-
+                
             }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.OpenImportTables();
         }
     }
 }

@@ -16,9 +16,10 @@ namespace CS_SQLBuilderDan
         public string ComputerName { get; set; }
         public string IPAddr4 { get; set; }
         public string DatabaseName { get; set; }
+        public string Port { get; set; }
         public string TableName { get; set; }
         public int Sequence { get; set; }
-        public string LibrayName { get; set; }
+        public string LibraryName { get; set; }
         public string ColumnType { get; set; }
         public string ColumnTypeInternal { get; set; }
         public int AuthorityFlag { get; set; }
@@ -35,5 +36,6 @@ namespace CS_SQLBuilderDan
         public int Status { get; set; }
         public int HeaderID { get; set; }
         public string SortField { get; set; }
+        public bool IsPrimaryKey { get; set; }
     }
 }

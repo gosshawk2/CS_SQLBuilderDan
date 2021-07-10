@@ -7,6 +7,17 @@ namespace CS_SQLBuilderDan
 {
     public partial class Form_MAIN : Form
     {
+        
+        public string statusMSG1
+        {
+            get {return this.StsLabel1.Text; }
+            set 
+            {
+                this.StsLabel1.Text = value;
+                this.statusStrip1.Refresh();
+            }
+        }
+
         public Form_MAIN()
         {
             System.Security.Principal.WindowsPrincipal P;
@@ -23,16 +34,30 @@ namespace CS_SQLBuilderDan
         {
             //var UserID = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
             //System.Security.Principal.WindowsPrincipal P = (System.Security.Principal.WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
-
             string FullUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             //AUser = P.Identity.Name;
+            var DAL = new CS_SQLBuilderDAL();
             int SlashPos = FullUser.IndexOf("\\");
             if (SlashPos > 0)
             {
                 Program.CurrentUser = FullUser.Substring(SlashPos + 1);
             }
+            
+            Program.SystemDatabase = "SQLBuilderDG";
             Program.CurrentServer = FullUser.Substring(0, 15);
+            Program.CurrentServerInstance = DAL.GetSQLInstances(FullUser.Substring(0, 15));
+            Program.ComputerName = FullUser.Substring(0, 15);
+            Program.SystemServer = FullUser.Substring(0, 15);
+            Program.SystemServerInstance = DAL.GetSQLInstances(FullUser.Substring(0, 15));
+            Program.SystemHeaderTable = "tblHeaderlist";
+            Program.SystemDetailTable = "tblTableDetails";
             Program.CurrentMode = "Live";
+            Program.ParentHandle = this.Handle;
+            Program.ParentForm = this;
+            Program.MainForm = this;
+            Program.DBType = "MSSQL_ODBC";
+            Program.Theme = "DARK";
+
             StsLabel2.Spring = true;
             StsLabel1.ForeColor = Color.AliceBlue;
             StsLabel2.ForeColor = Color.AliceBlue;
@@ -40,21 +65,22 @@ namespace CS_SQLBuilderDan
             StsLabel4.ForeColor = Color.AliceBlue;
             StsLabel5.ForeColor = Color.AliceBlue;
             StsLabel6.ForeColor = Color.AliceBlue;
+            StsLabel1.Text = "";
             StsLabel3.Text = "    User: " + Program.CurrentUser + "   ";
             StsLabel4.Text = "    Server: " + Program.CurrentServer + "   ";
             StsLabel5.Text = "    Environment: " + Program.CurrentMode + "   ";
             StsLabel6.Text = String.Format("    Version {0}", Assembly.GetExecutingAssembly().GetName().Version) + "   ";
-
-            Program.ParentHandle = this.Handle;
-            Program.ParentForm = this;
-            Program.DBType = "MSSQL_ODBC";
-            Program.Theme = "DARK";
-
+            
             /*For Each c As Control In Controls
                 AddHandler c.MouseClick, AddressOf ClickHandler
             Next */
 
 
+        }
+
+        public void WriteMessage(string StatusMessage)
+        {
+            StsLabel1.Text = StatusMessage;
         }
 
         public void ClickHandler(object sender, MouseEventArgs e)
@@ -72,6 +98,7 @@ namespace CS_SQLBuilderDan
 
             Cursor = Cursors.Default;
             StsLabel1.Text = "Loading List......";
+            statusMSG1 = "Open Form: Table List...";
             Cursor = Cursors.WaitCursor;
             //Refresh()
             App.Visible = false;
@@ -84,13 +111,13 @@ namespace CS_SQLBuilderDan
             Cursor = Cursors.Default;
         }
 
-        private void OpenImportTables()
+        public void OpenImportTables()
         {
             //Open child form to show tables imported in grid-like control:
             var App = new FrmImportTable();
 
             Cursor = Cursors.Default;
-            StsLabel1.Text = "Open Form: Import Table......";
+            statusMSG1 = "Open Form: Import Table......";
             Cursor = Cursors.WaitCursor;
             //Refresh()
             App.Visible = false;
@@ -108,7 +135,7 @@ namespace CS_SQLBuilderDan
             var App = new Form_WebView2_Browser();
 
             Cursor = Cursors.Default;
-            StsLabel1.Text = "Open Form: Web Browser v2......";
+            statusMSG1 = "Open Form: Web Browser v2......";
             Cursor = Cursors.WaitCursor;
             //Refresh()
             //App.Visible = false;
@@ -173,6 +200,16 @@ namespace CS_SQLBuilderDan
         private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

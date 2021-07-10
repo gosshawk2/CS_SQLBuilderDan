@@ -18,11 +18,12 @@ namespace CS_SQLBuilderDan
         public string ComputerName { get; set; }
         public string IPAddr4 { get; set; }
         public string TableName { get; set; }
-        public string LibrayName { get; set; }
+        public string LibraryName { get; set; }
+        public string Port { get; set; }
         public string DatasetType { get; set; }
         public int AuthorityFlag { get; set; }
         public string DatasetLevel { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
         public string SortField { get; set; }
         public string FileLocation { get; set; }
         public string ImportedBy { get; set; }

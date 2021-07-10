@@ -29,7 +29,7 @@ namespace CS_SQLBuilderDan
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDatabase = new System.Windows.Forms.TextBox();
@@ -54,38 +54,40 @@ namespace CS_SQLBuilderDan
             this.StsLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StsLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgvTableList = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.pnlTop.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableList)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlTop
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.txtDescription);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtDatabase);
-            this.panel1.Controls.Add(this.lblDatabase);
-            this.panel1.Controls.Add(this.txtTableName);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtLibrary);
-            this.panel1.Controls.Add(this.lblLibrary);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnClearFilters);
-            this.panel1.Controls.Add(this.txtUser);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.btnLoadQuery);
-            this.panel1.Controls.Add(this.cboViews);
-            this.panel1.Controls.Add(this.cboTables);
-            this.panel1.Controls.Add(this.txtDatasetName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Location = new System.Drawing.Point(3, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(951, 62);
-            this.panel1.TabIndex = 0;
+            this.pnlTop.Controls.Add(this.btnImport);
+            this.pnlTop.Controls.Add(this.txtDescription);
+            this.pnlTop.Controls.Add(this.label2);
+            this.pnlTop.Controls.Add(this.txtDatabase);
+            this.pnlTop.Controls.Add(this.lblDatabase);
+            this.pnlTop.Controls.Add(this.txtTableName);
+            this.pnlTop.Controls.Add(this.label5);
+            this.pnlTop.Controls.Add(this.txtLibrary);
+            this.pnlTop.Controls.Add(this.lblLibrary);
+            this.pnlTop.Controls.Add(this.txtUser);
+            this.pnlTop.Controls.Add(this.label4);
+            this.pnlTop.Controls.Add(this.btnLoadQuery);
+            this.pnlTop.Controls.Add(this.cboViews);
+            this.pnlTop.Controls.Add(this.cboTables);
+            this.pnlTop.Controls.Add(this.txtDatasetName);
+            this.pnlTop.Controls.Add(this.label1);
+            this.pnlTop.Controls.Add(this.btnRefresh);
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Controls.Add(this.btnClearFilters);
+            this.pnlTop.Location = new System.Drawing.Point(3, 10);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(951, 62);
+            this.pnlTop.TabIndex = 0;
             // 
             // txtDescription
             // 
@@ -153,7 +155,7 @@ namespace CS_SQLBuilderDan
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(355, 36);
+            this.btnClose.Location = new System.Drawing.Point(363, 36);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 20);
             this.btnClose.TabIndex = 12;
@@ -163,7 +165,7 @@ namespace CS_SQLBuilderDan
             // 
             // btnClearFilters
             // 
-            this.btnClearFilters.Location = new System.Drawing.Point(265, 36);
+            this.btnClearFilters.Location = new System.Drawing.Point(285, 36);
             this.btnClearFilters.Name = "btnClearFilters";
             this.btnClearFilters.Size = new System.Drawing.Size(70, 20);
             this.btnClearFilters.TabIndex = 11;
@@ -189,7 +191,7 @@ namespace CS_SQLBuilderDan
             // 
             // btnLoadQuery
             // 
-            this.btnLoadQuery.Location = new System.Drawing.Point(175, 36);
+            this.btnLoadQuery.Location = new System.Drawing.Point(206, 36);
             this.btnLoadQuery.Name = "btnLoadQuery";
             this.btnLoadQuery.Size = new System.Drawing.Size(70, 20);
             this.btnLoadQuery.TabIndex = 8;
@@ -241,7 +243,7 @@ namespace CS_SQLBuilderDan
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(85, 36);
+            this.btnRefresh.Location = new System.Drawing.Point(127, 36);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(70, 20);
             this.btnRefresh.TabIndex = 0;
@@ -263,6 +265,7 @@ namespace CS_SQLBuilderDan
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StsLabel1,
             this.StsLabel2,
@@ -298,9 +301,19 @@ namespace CS_SQLBuilderDan
             this.dgvTableList.Location = new System.Drawing.Point(8, 9);
             this.dgvTableList.Name = "dgvTableList";
             this.dgvTableList.RowTemplate.Height = 25;
-            this.dgvTableList.Size = new System.Drawing.Size(933, 282);
+            this.dgvTableList.Size = new System.Drawing.Size(933, 266);
             this.dgvTableList.TabIndex = 0;
             this.dgvTableList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvTableList_MouseDown);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(51, 31);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(70, 26);
+            this.btnImport.TabIndex = 20;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // frmTableList
             // 
@@ -308,12 +321,12 @@ namespace CS_SQLBuilderDan
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 390);
             this.Controls.Add(this.pnlGrid);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlTop);
             this.Name = "frmTableList";
             this.Text = "Table List";
             this.Load += new System.EventHandler(this.frmTest_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
             this.pnlGrid.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -325,7 +338,7 @@ namespace CS_SQLBuilderDan
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.TextBox txtDatasetName;
@@ -350,6 +363,7 @@ namespace CS_SQLBuilderDan
         private System.Windows.Forms.ToolStripStatusLabel StsLabel1;
         private System.Windows.Forms.ToolStripStatusLabel StsLabel2;
         private System.Windows.Forms.ToolStripStatusLabel StsLabel3;
+        private System.Windows.Forms.Button btnImport;
     }
 }
 
